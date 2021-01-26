@@ -1,9 +1,15 @@
 header {
   height: 425px;
+  /* font-family: 'Source Sans Pro', sans-serif; */
+  font-weight: 300;
   display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: center;
   background-color: #f6b131;
   background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre-v2.png");;
+}
+
+header div h2 {
+  font-weight: 300;
 }
