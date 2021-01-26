@@ -1,10 +1,10 @@
-/* .new-tweet {
-  placeholder for now REMOVE FOR FINAL SUBMISSION 
-} */
+.new-tweet {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bolder;
+}
 
 #tweet-text {
   width: 100%;
-  font-weight: bolder;
   background-color: #f4f1ec;
   outline: none;
   border: none;
