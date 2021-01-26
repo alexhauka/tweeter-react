@@ -1,12 +1,22 @@
 .tweet-feed {
-  background-color: aqua;
+  background-color: #f4f1ec;
 }
 
 
 article {
 
-  background-color: crimson;
+  background-color: #f4f1ec;
   border-style: solid;
+}
+
+article:hover {
+  box-shadow: 10px 10px 5px rgb(136, 174, 247);
+  transition: box-shadow .2s ease-in-out;
+}
+
+article:hover .handle {
+  opacity: 1;
+  transition: opacity .3s ease-in-out;
 }
 
 
@@ -18,20 +28,29 @@ article header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: bisque;
+  background-color: #f4f1ec;
 }
+
+.handle {
+  opacity: 0;
+}
+
 
 article section {
   width: 98%;
   padding: .5em;
   margin: auto;
-  background-color: darkkhaki;
+  background-color: #f4f1ec;
   border-bottom-style: solid;
 }
 
 article footer {
+  font-size: .5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 95%;
   margin: auto;
   padding: .5em;
-  background-color: coral;
+  background-color: #f4f1ec;
 }
