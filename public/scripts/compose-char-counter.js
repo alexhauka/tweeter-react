@@ -11,7 +11,7 @@ $(document).ready(function() {
     } else if (num >= 0 && num < 20) {
       $('.counter').css('color', '#fba607');
     } else if (num >= 20) {
-      $('.counter').css('color', '#545149');
+      $('.counter').css('color', '#6495ED');
     }
   })
    
