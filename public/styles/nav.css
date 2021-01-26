@@ -1,0 +1,10 @@
+nav {
+  height: 120px;
+  background-color: cornflowerblue;
+  color: #ffffff;
+  padding: 1.5em;
+}
+
+span {
+  font-family: 'Bungee', cursive;
+}

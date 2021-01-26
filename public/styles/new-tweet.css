@@ -1,0 +1,31 @@
+/* .new-tweet {
+  placeholder for now REMOVE FOR FINAL SUBMISSION 
+} */
+
+#tweet-text {
+  width: 100%;
+  font-weight: bolder;
+  background-color: #f4f1ec;
+  outline: none;
+  border: none;
+  border-bottom-style: solid;
+}
+
+.tweet-button {
+  color: white;
+  background-color: cornflowerblue;
+  margin-right: auto;
+  border-radius: 5px;
+  
+  
+}
+
+.tweet-button:hover {
+  background-color: #f6b131;
+}
+
+.tweet-bottom {
+  font-family: 'Bungee', cursive;
+  margin-top: 1em;
+  display: flex;
+}
