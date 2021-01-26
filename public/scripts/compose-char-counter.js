@@ -1,6 +1,6 @@
 $(document).ready(function() {
   
-  // uses initial 140 value and reduces based off tweet-text entry
+  // updates remaining character count for new tweets as they are typed out
   const count = $(".counter").val();
   $('#tweet-text').keyup(() => {
     let string = $("#tweet-text").val();

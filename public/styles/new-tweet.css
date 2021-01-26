@@ -31,6 +31,7 @@
 
 .tweet-bottom {
   font-family: 'Bungee', cursive;
-  margin-top: .5em;
+  margin-top: .1em;
+  margin-bottom: 2em;
   display: flex;
 }

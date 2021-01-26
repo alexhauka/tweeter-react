@@ -1,4 +1,4 @@
-header {
+.page-header {
   height: 425px;
   /* font-family: 'Source Sans Pro', sans-serif; */
   font-weight: 300;
@@ -10,7 +10,7 @@ header {
   background-image: url("https://www.transparenttextures.com/patterns/soft-pad.png");
 }
 
-header div h2 {
+.page-header div h2 {
   font-weight: 300;
   color: #545149;
 }
