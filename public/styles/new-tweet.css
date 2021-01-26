@@ -11,7 +11,7 @@
   outline: none;
   border: none;
   border-bottom-style: solid;
-  font-weight: 700;
+  font-weight: 300;
 }
 
 .tweet-button {
@@ -24,7 +24,7 @@
 }
 
 .tweet-button:hover {
-  background-color: #f6b131;
+  background-color: #fba607;
 }
 
 .tweet-bottom {

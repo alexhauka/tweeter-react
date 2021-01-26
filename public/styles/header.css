@@ -6,10 +6,11 @@ header {
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  background-color: #f6b131;
-  background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre-v2.png");;
+  background-color: #fba607;
+  background-image: url("https://www.transparenttextures.com/patterns/soft-pad.png");
 }
 
 header div h2 {
   font-weight: 300;
+  color: #545149;
 }
