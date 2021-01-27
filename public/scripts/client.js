@@ -1,10 +1,10 @@
 /*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+* Client-side JS logic goes here
+* jQuery is already loaded
+* Reminder: Use (and do all your DOM work in) jQuery's document ready function
+*/
 
- // Fake data taken from initial-tweets.json => REMOVE AFTER IMPLEMENTING AJAX GET REQUEST
+// Fake data taken from initial-tweets.json => REMOVE AFTER IMPLEMENTING AJAX GET REQUEST
 const data = [
   {
     "user": {
@@ -28,7 +28,9 @@ const data = [
     },
     "created_at": 1461113959088
   }
-]
+];
+
+
 $(document).ready(function() {
   
   // UPDATE
@@ -42,7 +44,7 @@ $(document).ready(function() {
       // takes return value and appends it to the tweets container
       $('.container').append(createTweetElement(tweet));
     }
-  }
+  };
   
   const createTweetElement = function(tweet) {
     let $tweet = `
@@ -72,20 +74,18 @@ $(document).ready(function() {
     </section>
     `;
     return $tweet;
-  }
+  };
 
   renderTweets(data);
 
   $("#post-tweet").on('submit', function(event) {
     event.preventDefault();
-    const queryString = $( this ).serialize();
-    console.log(queryString)
+    const queryString = $(this).serialize();
     $.ajax({
       url: '/tweets',
       method: 'POST',
       data: queryString
     });
-
-  })
+  });
   
 });

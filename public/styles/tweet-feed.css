@@ -35,7 +35,6 @@ article header {
 .user-info {
   display: flex;
   align-items: center;
-  
 }
 
 #user-avatar {
@@ -51,6 +50,7 @@ article header {
 
 article section {
   width: 98%;
+  font-weight: 700;
   padding: .5em;
   margin: auto;
   background-color: #f4f1ec;

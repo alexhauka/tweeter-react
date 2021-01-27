@@ -21,12 +21,16 @@
   background-color: cornflowerblue;
   margin-right: auto;
   border-radius: 5px;
-  
-  
 }
 
 .tweet-button:hover {
   background-color: #fba607;
+}
+
+.tweet-button:active {
+  /* background-color: #fb7d07; */
+  box-shadow: 5px 5px rgb(136, 174, 247);
+  transform: translateY(4px);
 }
 
 .tweet-bottom {

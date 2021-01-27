@@ -1,7 +1,10 @@
+
+
+
 .page-header {
   height: 425px;
-  /* font-family: 'Source Sans Pro', sans-serif; */
-  font-weight: 300;
+
+  font-weight: 200;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -11,6 +14,11 @@
 }
 
 .page-header div h2 {
+
   font-weight: 300;
   color: #545149;
+}
+
+#first-name {
+  font-weight: 700;
 }
