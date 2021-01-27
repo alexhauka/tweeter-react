@@ -43,6 +43,7 @@ article header {
 }
 
 .handle {
+  color: cornflowerblue;
   display: flex;
   opacity: 0;
 }

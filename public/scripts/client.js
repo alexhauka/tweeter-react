@@ -64,7 +64,7 @@ $(document).ready(function() {
         </section>
 
         <footer>
-          <label>${tweet.created_at}</label>
+          <label>${Date(tweet.created_at)}</label>
           <label>buttons</label>
         </footer>
 
@@ -75,5 +75,14 @@ $(document).ready(function() {
   }
 
   renderTweets(data);
+
+  $(function() {
+    $( "#post-tweet" ).submit(function( event ) {
+      event.preventDefault();
+      const queryString = $( this ).serialize()
+      $.ajax('/tweets', queryString, { method: 'POST' })
+    });
+  });
+
   
 });
