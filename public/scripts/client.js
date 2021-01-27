@@ -51,7 +51,7 @@ $(document).ready(function() {
 
         <header>
           <div class="user-info">
-            <img src=${tweet.user.avatars}>
+            <img id="user-avatar" src=${tweet.user.avatars}>
             <label>${tweet.user.name}</label>
           </div>
           <div class="handle">
