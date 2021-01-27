@@ -25,16 +25,7 @@ html {
   main {
     width: 90%;
     margin: auto;
+    display: flex;
+    flex-flow: column;
     background-color: #f4f1ec;
   }
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
-
-
- .parent {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
- }

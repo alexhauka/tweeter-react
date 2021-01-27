@@ -7,13 +7,12 @@ $(document).ready(function() {
 
     for (const tweet of tweets) {
       // takes tweets and appends them to the tweets container on main page
-      $('.container').append(createTweetElement(tweet));
+      $('.tweet-feed').prepend(createTweetElement(tweet));
     }
   };
   // sets markup and dynamically populates tweets
   const createTweetElement = function(tweet) {
     let $tweet = `
-    <section class="tweet-feed">
       <article>
 
         <header>
@@ -36,7 +35,6 @@ $(document).ready(function() {
         </footer>
 
       </article>
-    </section>
     `;
     return $tweet;
   };
@@ -57,6 +55,7 @@ $(document).ready(function() {
         method: 'POST',
         data: queryString
       })
+      .then(renderTweets(data))
       // .then((data) => {
       //   $('.container').load(url, (renderTweets(data)))
       // })

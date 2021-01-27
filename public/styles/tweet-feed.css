@@ -1,12 +1,12 @@
 .tweet-feed {
   background-color: #f4f1ec;
-  margin-bottom: 1em;
 }
 
 
 article {
   background-color: #f4f1ec;
   border-style: solid;
+  margin-bottom: 1em;
 }
 
 article:hover {
