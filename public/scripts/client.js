@@ -76,13 +76,16 @@ $(document).ready(function() {
 
   renderTweets(data);
 
-  $(function() {
-    $( "#post-tweet" ).submit(function( event ) {
-      event.preventDefault();
-      const queryString = $( this ).serialize()
-      $.ajax('/tweets', queryString, { method: 'POST' })
+  $("#post-tweet").on('submit', function(event) {
+    event.preventDefault();
+    const queryString = $( this ).serialize();
+    console.log(queryString)
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data: queryString
     });
-  });
 
+  })
   
 });
