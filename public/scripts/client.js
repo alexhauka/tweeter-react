@@ -40,7 +40,7 @@ $(document).ready(function() {
     `;
     return $tweet;
   };
-
+  
   // jquery/ajax post request handler when using tweet button
   $("#post-tweet").on('submit', function(event) {
     event.preventDefault();
@@ -56,8 +56,15 @@ $(document).ready(function() {
         url: '/tweets',
         method: 'POST',
         data: queryString
-      });
-    }
+      })
+      // .then((data) => {
+      //   $('.container').load(url, (renderTweets(data)))
+      // })
+      // .then(($queryString) => {
+      //   const newTweets = renderTweets($queryString)
+      //   $('.container').load('/tweets', newTweets, loadTweets)
+      // })
+    };
   });
   
   // pulls from /tweets then plugs the data into renderTweets
