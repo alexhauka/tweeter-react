@@ -3,6 +3,24 @@
   font-weight: 700;
 }
 
+
+
+.error-count {
+  display: none;
+  font-weight: 300;
+  margin-top: 1em;
+  color: red;
+  border-style: solid;
+}
+
+.error-empty {
+  display: none;
+  font-weight: 300;
+  margin-top: 1em;
+  color: red;
+  border-style: solid;
+}
+
 #tweet-text {
   width: 100%;
   height: 40px;

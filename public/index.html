@@ -46,10 +46,16 @@
     </header>
 
     <main class="container">
-      <section class="new-tweet" > 
-        <h2>Compose Tweet</h2>
-        <label>What are you humming about?</label>
+      <section class="new-tweet"> 
+        <div class="error-count">
+          <label>&#9888; Error! Exceeded maximum character count! &#9888;</label>
+        </div>
+        <div class="error-empty">
+          <label>&#9888; Error! You may not submit an empty tweet. &#9888;</label>
+        </div>
+        <br>
         <form id="post-tweet" method="POST" action="/tweets">
+          <label>What are you humming about?</label>
           <textarea name="text" id="tweet-text" ></textarea>
           <div class="tweet-bottom">
             <button class="tweet-button" type="submit">Tweet</button>

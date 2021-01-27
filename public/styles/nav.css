@@ -20,6 +20,10 @@ span {
   align-items: center;
 }
 
+.write-button label {
+  cursor: pointer;
+}
+
 nav i {
   color: red;
 

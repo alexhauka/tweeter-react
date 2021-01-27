@@ -26,6 +26,13 @@ $(document).ready(function() {
     })
     .fail(error => console.log(error));
   }
+
+  // escapes unsafe characters entered by the user in createTweetElement
+  const escape = function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
   
   // sets markup and dynamically populates tweets (for both initial page load and rendering new tweet)
   const createTweetElement = function(tweet) {
@@ -43,7 +50,7 @@ $(document).ready(function() {
         </header>
 
         <section>
-          <p>${tweet.content.text}</p>
+          <p>${escape(tweet.content.text)}</p>
         </section>
 
         <footer>
@@ -55,16 +62,24 @@ $(document).ready(function() {
     `;
     return $tweet;
   };
+
+  
+
+  
   
   // jquery/ajax post request handler; checks for character length and empty content
   $("#post-tweet").on('submit', function(event) {
     event.preventDefault();
     const text = $(this.children[0]).val();
     const queryString = $(this).serialize();
+    // ensures the errors hide again before checking
+    $('.error-empty').slideUp('fast', 'linear')
+    $('.error-count').slideUp('fast', 'linear')
     if (text.length > 140) {
-      alert('Exceeded maximum character count!')
+      // error classes are set to display: none in their css
+      $('.error-count').slideDown('fast', 'linear')
     } else if (text === "" || text === null) {
-      alert('You may not submit an empty tweet.')
+      $('.error-empty').slideDown('fast', 'linear')
     } else {
       $.ajax({
         url: '/tweets',
@@ -88,6 +103,13 @@ $(document).ready(function() {
       renderTweets(tweets);
     });
   };
+
+
+
+  $('.write-button').on('click', function(event) {
+    $('#post-tweet').slideToggle(event);
+    $('#tweet-text').focus();
+  })
 
   loadTweets();
 
