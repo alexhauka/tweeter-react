@@ -1,51 +1,16 @@
-/*
-* Client-side JS logic goes here
-* jQuery is already loaded
-* Reminder: Use (and do all your DOM work in) jQuery's document ready function
-*/
-
-// Fake data taken from initial-tweets.json => REMOVE AFTER IMPLEMENTING AJAX GET REQUEST
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
-
 
 $(document).ready(function() {
   
-  // UPDATE
-
+  
+  // loops through the /tweets database and renders them to the main page
   const renderTweets = function(tweets) {
-    // const data = tweets
 
-    // loops through tweets
-    for (const tweet of data) {
-      // calls createTweetElement for each tweet
-      // takes return value and appends it to the tweets container
+    for (const tweet of tweets) {
+      // takes tweets and appends them to the tweets container on main page
       $('.container').append(createTweetElement(tweet));
     }
   };
-  
+  // sets markup and dynamically populates tweets
   const createTweetElement = function(tweet) {
     let $tweet = `
     <section class="tweet-feed">
@@ -76,16 +41,33 @@ $(document).ready(function() {
     return $tweet;
   };
 
-  renderTweets(data);
-
+  // jquery/ajax post request handler when using tweet button
   $("#post-tweet").on('submit', function(event) {
     event.preventDefault();
+    const text = $(this.children[0]).val();
     const queryString = $(this).serialize();
-    $.ajax({
-      url: '/tweets',
-      method: 'POST',
-      data: queryString
-    });
+    console.log(text);
+    if (text.length > 140) {
+      alert('Exceeded maximum character count!')
+    } else if (text === "" || text === null) {
+      alert('You may not submit an empty tweet.')
+    } else {
+      $.ajax({
+        url: '/tweets',
+        method: 'POST',
+        data: queryString
+      });
+    }
   });
   
+  // pulls from /tweets then plugs the data into renderTweets
+  const loadTweets = function() {
+    $.ajax('/tweets', { method: 'GET' })
+    .then(function (tweets) {
+      renderTweets(tweets);
+    });
+  };
+
+  loadTweets();
+
 });
