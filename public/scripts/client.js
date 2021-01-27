@@ -2,15 +2,32 @@
 $(document).ready(function() {
   
   
-  // loops through the /tweets database and renders them to the main page
+  // loops through the /tweets database and renders them on initial page load
   const renderTweets = function(tweets) {
-
     for (const tweet of tweets) {
-      // takes tweets and appends them to the tweets container on main page
       $('.tweet-feed').prepend(createTweetElement(tweet));
     }
   };
-  // sets markup and dynamically populates tweets
+
+  // renders the most recent tweet from ajax page update
+  const renderRecentTweet = function(tweet) {
+    $(".tweet-feed").prepend(createTweetElement(tweet));
+
+  }
+
+  // loads the most recent tweet via ajax
+  const loadRecentTweet = function() {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET'
+    })
+    .done((data) => {
+      renderRecentTweet(data[data.length -1]);
+    })
+    .fail(error => console.log(error));
+  }
+  
+  // sets markup and dynamically populates tweets (for both initial page load and rendering new tweet)
   const createTweetElement = function(tweet) {
     let $tweet = `
       <article>
@@ -39,12 +56,11 @@ $(document).ready(function() {
     return $tweet;
   };
   
-  // jquery/ajax post request handler when using tweet button
+  // jquery/ajax post request handler; checks for character length and empty content
   $("#post-tweet").on('submit', function(event) {
     event.preventDefault();
     const text = $(this.children[0]).val();
     const queryString = $(this).serialize();
-    console.log(text);
     if (text.length > 140) {
       alert('Exceeded maximum character count!')
     } else if (text === "" || text === null) {
@@ -55,18 +71,17 @@ $(document).ready(function() {
         method: 'POST',
         data: queryString
       })
-      .then(renderTweets(data))
-      // .then((data) => {
-      //   $('.container').load(url, (renderTweets(data)))
-      // })
-      // .then(($queryString) => {
-      //   const newTweets = renderTweets($queryString)
-      //   $('.container').load('/tweets', newTweets, loadTweets)
-      // })
+      .done(() => {
+        // resests form and character count, then renders new tweet on page
+        $(this.children[0]).val("");
+        $(".counter").val(140);
+        loadRecentTweet();
+      })
+      .fail(error => console.log(error));  
     };
   });
   
-  // pulls from /tweets then plugs the data into renderTweets
+  // renders tweets from database on initial page load
   const loadTweets = function() {
     $.ajax('/tweets', { method: 'GET' })
     .then(function (tweets) {
