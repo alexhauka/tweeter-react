@@ -110,6 +110,8 @@ $(document).ready(function() {
 
   // 'Write a new Tweet' button in the nav, toggles new tweet and focuses
   $('.write-button').on('click', function(event) {
+    $('.error-count').slideUp('fast', 'linear');
+    $('.error-empty').slideUp('fast', 'linear');
     $('.tweet-box').slideToggle(event);
     $('#tweet-text').focus();
   });
