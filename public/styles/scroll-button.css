@@ -1,0 +1,20 @@
+
+
+#scroll-button {
+  margin-bottom: 1em;
+  font-size: 3em;
+  align-self: flex-end;
+  color: #fb9107;
+  background-color: whitesmoke;
+  border-style: hidden;
+  border-radius: 50%;
+  position: fixed;
+  right: 5px;
+  bottom: 5px;
+  scroll-behavior: smooth;
+}
+
+#scroll-button:hover {
+  cursor: pointer;
+  background-color: #545149;
+}

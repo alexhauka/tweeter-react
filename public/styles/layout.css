@@ -1,6 +1,7 @@
 /*
  * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
  * https://css-tricks.com/international-box-sizing-awareness-day/
+ *
  * Do not modify these two selectors, please
  */
 html {
@@ -13,6 +14,7 @@ html {
 
 
 
+/* ---------------------------------------- */
 
  body {
    color: #545149;
@@ -29,24 +31,7 @@ html {
     background-color: #F4E2C1;
   }
 
-  #scroll-button {
-    margin-bottom: 1em;
-    font-size: 3em;
-    align-self: flex-end;
-    color: #fb9107;
-    background-color: whitesmoke;
-    border-style: hidden;
-    border-radius: 50%;
-    position: fixed;
-    right: 5px;
-    bottom: 5px;
-    scroll-behavior: smooth;
-  }
-
-  #scroll-button:hover {
-    cursor: pointer;
-    background-color: #545149;
-  }
+  
 
   /* Tablet Styles */
 @media only screen and (min-width: 768px) {
