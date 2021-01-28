@@ -1,7 +1,8 @@
 "use strict";
 
+// made a helper to construct date in a format I was okay with
+const { dateMaker, timeMaker } = require('../lib/date-maker')
 const userHelper    = require("../lib/util/user-helper")
-
 const express       = require('express');
 const tweetsRoutes  = express.Router();
 
@@ -22,15 +23,16 @@ module.exports = function(DataHelpers) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
       return;
     }
-    const date = new Date();
-    const convertedDate = date.toDateString();
+    const date = dateMaker();
+    const time = timeMaker();
+    const dateTime = date + ' - ' + time;
     const user = req.body.user ? req.body.user : userHelper.generateRandomUser();
     const tweet = {
       user: user,
       content: {
         text: req.body.text
       },
-      created_at: convertedDate
+      created_at: dateTime
     };
 
     DataHelpers.saveTweet(tweet, (err) => {
