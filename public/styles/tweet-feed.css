@@ -17,10 +17,7 @@ article:hover {
   transition: box-shadow .2s ease-in-out;
 }
 
-article:hover .handle {
-  opacity: 1;
-  transition: opacity .3s ease-in-out;
-}
+
 
 
 article header {
@@ -47,7 +44,7 @@ article header {
 .handle {
   color: cornflowerblue;
   display: flex;
-  opacity: 0;
+
 }
 
 
@@ -58,6 +55,7 @@ article section {
   margin: auto;
   background-color: #f4f1ec;
   border-bottom-style: solid;
+  overflow-wrap: break-word;
 }
 
 article footer {
