@@ -2,22 +2,28 @@
 
 
 .page-header {
+  padding-top: 35px;
   height: 425px;
-
   font-weight: 200;
   display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  background-color: #fba607;
-  background-image: url("https://www.transparenttextures.com/patterns/soft-pad.png");
+  color: cornflowerblue;
+  background-color: #ff8d0099;
+  background-image: url('../images/new-bg.jpg');
+  background-size: auto;
+  background-blend-mode: soft-light;
+  /* opacity: .5; */
 }
 
 .page-header div h2 {
-
+  margin-top: 1px;
   font-weight: 300;
   color: #545149;
 }
+
+
 
 #first-name {
   font-weight: 700;

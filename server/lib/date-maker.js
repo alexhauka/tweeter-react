@@ -1,5 +1,5 @@
 
-
+// returns Vancouver-based date in basic numeric format without frills
 const dateMaker = function() {
   const d = new Date();
   const localTime = d.getTime();
@@ -19,7 +19,7 @@ const dateMaker = function() {
   return nd.toLocaleDateString('en-US', options);
 }
 
-
+// returns Vancouver-based time in basic numeric format without frills
 const timeMaker = function() {
   const d = new Date();
   const localTime = d.getTime();

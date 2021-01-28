@@ -13,7 +13,7 @@ html {
 
  body {
    color: #545149;
-   background-color: #f4f1ec;
+   background-color: #F4E2C1;
    font-size: 24px;
    font-family: 'Source Sans Pro', sans-serif;
   }
@@ -23,7 +23,7 @@ html {
     margin: auto;
     display: flex;
     flex-flow: column;
-    background-color: #f4f1ec;
+    background-color: #F4E2C1;
   }
 
   #scroll-button {

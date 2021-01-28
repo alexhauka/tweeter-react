@@ -3,7 +3,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   height: 120px;
-  background-color: cornflowerblue;
+  background-color: rgb(255, 174, 0);
   color: #ffffff;
   padding: 1.5em;
   position: sticky; 
