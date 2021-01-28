@@ -1,7 +1,8 @@
 
 $(document).ready(function() {
   
-  
+  $('.tweet-box').hide();
+
   // loops through the /tweets database and renders them on initial page load
   const renderTweets = function(tweets) {
     for (const tweet of tweets) {
@@ -73,8 +74,7 @@ $(document).ready(function() {
     const text = $(this.children[0]).val();
     const queryString = $(this).serialize();
     // ensures the errors hide again before checking
-    $('.error-empty').slideUp('fast', 'linear')
-    $('.error-count').slideUp('fast', 'linear')
+    
     if (text.length > 140) {
       // error classes are set to display: none in their css
       $('.error-count').slideDown('fast', 'linear')
@@ -107,9 +107,34 @@ $(document).ready(function() {
 
 
   $('.write-button').on('click', function(event) {
-    $('#post-tweet').slideToggle(event);
+    $('.tweet-box').slideToggle(event);
     $('#tweet-text').focus();
   })
+
+  $(function() {
+    $('#scroll-button').hide();
+    $(window).scroll(function() {
+      let scroll = $(window).scrollTop();
+      if (scroll >= 100) {
+        $('#scroll-button').show();
+      } else {
+        $('#scroll-button').hide();
+      }
+    })
+  })
+
+  const slideAndFocus = function() {
+    
+    $('.tweet-box').slideDown();
+    $('#tweet-text').focus();
+  }
+
+  $('#scroll-button').on('click', function() {
+    $('html, body').animate({
+      scrollTop: 0}, 1100);
+      setTimeout(slideAndFocus(), 5000)
+  })
+
 
   loadTweets();
 

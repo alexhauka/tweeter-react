@@ -54,19 +54,24 @@
           <label>&#9888; Error! You may not submit an empty tweet. &#9888;</label>
         </div>
         <br>
-        <form id="post-tweet" method="POST" action="/tweets">
+        <div class="tweet-box">
           <label>What are you humming about?</label>
-          <textarea name="text" id="tweet-text" ></textarea>
-          <div class="tweet-bottom">
-            <button class="tweet-button" type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
+          <form id="post-tweet" method="POST" action="/tweets">
+            <textarea name="text" id="tweet-text" ></textarea>
+            <div class="tweet-bottom">
+              <button class="tweet-button" type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </div>
       </section>
       <section class="tweet-feed">
         <!-- tweet feed prepended here -->
       </section>
+      <i class="fas fa-arrow-circle-up" id="scroll-button"></i>
     </main>
     <script src="/scripts/compose-char-counter.js"></script>
   </body>
 </html>
+
+<!-- <i class="fas fa-angle-double-up"></i> -->
