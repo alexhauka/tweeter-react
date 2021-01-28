@@ -67,3 +67,16 @@ article footer {
   padding: .5em;
   background-color: #f4f1ec;
 }
+
+#footer-buttons i {
+  color: cornflowerblue;
+  opacity: 0;
+  margin-right: 1.5em;
+}
+
+
+
+article:hover #footer-buttons i {
+  opacity: 1;
+  transition: opacity .3s ease-in-out;
+}

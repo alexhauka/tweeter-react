@@ -56,8 +56,8 @@ $(document).ready(function() {
         </section>
 
         <footer>
-          <label>${Date(tweet.created_at)}</label>
-          <label>buttons</label>
+          <label>${(tweet.created_at)}</label>
+          <div id="footer-buttons"><i class="far fa-flag"></i><i class="fas fa-retweet"></i><i class="far fa-heart"></i></div>
         </footer>
 
       </article>

@@ -22,14 +22,15 @@ module.exports = function(DataHelpers) {
       res.status(400).json({ error: 'invalid request: no data in POST body'});
       return;
     }
-
+    const date = new Date();
+    const convertedDate = date.toDateString();
     const user = req.body.user ? req.body.user : userHelper.generateRandomUser();
     const tweet = {
       user: user,
       content: {
         text: req.body.text
       },
-      created_at: Date.now()
+      created_at: convertedDate
     };
 
     DataHelpers.saveTweet(tweet, (err) => {
