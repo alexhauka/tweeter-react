@@ -1,6 +1,7 @@
 
 $(document).ready(function() {
   
+  // defaults the new tweet-box as hidden until 'Write new Tweet' clicked
   $('.tweet-box').hide();
 
   // loops through the /tweets database and renders them on initial page load
@@ -14,7 +15,7 @@ $(document).ready(function() {
   const renderRecentTweet = function(tweet) {
     $(".tweet-feed").prepend(createTweetElement(tweet));
 
-  }
+  };
 
   // loads the most recent tweet via ajax
   const loadRecentTweet = function() {
@@ -23,17 +24,17 @@ $(document).ready(function() {
       method: 'GET'
     })
     .done((data) => {
-      renderRecentTweet(data[data.length -1]);
+      renderRecentTweet(data[data.length - 1]);
     })
     .fail(error => console.log(error));
-  }
+  };
 
   // escapes unsafe characters entered by the user in createTweetElement
   const escape = function(str) {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
-  }
+  };
   
   // sets markup and dynamically populates tweets (for both initial page load and rendering new tweet)
   const createTweetElement = function(tweet) {
@@ -75,12 +76,12 @@ $(document).ready(function() {
     const queryString = $(this).serialize();
     // ensures the errors hide again before checking
     $('.error-count').slideUp('fast', 'linear');
-    $('.error-empty').slideUp('fast', 'linear')
+    $('.error-empty').slideUp('fast', 'linear');
     if (text.length > 140) {
       // error classes are set to display: none in their css
-      $('.error-count').slideDown('fast', 'linear')
+      $('.error-count').slideDown('fast', 'linear');
     } else if (text === "" || text === null) {
-      $('.error-empty').slideDown('fast', 'linear')
+      $('.error-empty').slideDown('fast', 'linear');
     } else {
       $.ajax({
         url: '/tweets',
@@ -88,30 +89,31 @@ $(document).ready(function() {
         data: queryString
       })
       .done(() => {
-        // resests form and character count, then renders new tweet on page
+        // resets textarea and character count, then renders new tweet on page
         $(this.children[0]).val("");
         $(".counter").val(140);
         loadRecentTweet();
       })
-      .fail(error => console.log(error));  
-    };
+      .fail(error => console.log(error));
+    }
   });
   
   // renders tweets from database on initial page load
   const loadTweets = function() {
     $.ajax('/tweets', { method: 'GET' })
-    .then(function (tweets) {
+    .then(function(tweets) {
       renderTweets(tweets);
     });
   };
 
 
-
+  // 'Write a new Tweet' button in the nav, toggles new tweet and focuses
   $('.write-button').on('click', function(event) {
     $('.tweet-box').slideToggle(event);
     $('#tweet-text').focus();
-  })
+  });
 
+  // scroll button appears when scrolled down (requires enough tweets to populate a scrollbar)
   $(function() {
     $('#scroll-button').hide();
     $(window).scroll(function() {
@@ -121,22 +123,18 @@ $(document).ready(function() {
       } else {
         $('#scroll-button').hide();
       }
-    })
-  })
+    });
+  });
 
-  const slideAndFocus = function() {
-    
-    $('.tweet-box').slideDown();
-    $('#tweet-text').focus();
-  }
-
+  // smooth scroll to top on click, opens tweet box (if not already open) and focuses
   $('#scroll-button').on('click', function() {
     $('html, body').animate({
       scrollTop: 0}, 1100);
-      setTimeout(slideAndFocus(), 5000)
-  })
+      $('.tweet-box').slideDown();
+      $('#tweet-text').focus();
+  });
 
-
+  // loads tweets on inital page GET
   loadTweets();
 
 });
