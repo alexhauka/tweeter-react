@@ -13,7 +13,7 @@ $(document).ready(function() {
 
   // renders the most recent tweet from ajax page update
   const renderRecentTweet = function(tweet) {
-    $(".tweet-feed").prepend(createTweetElement(tweet));
+    $('.tweet-feed').prepend(createTweetElement(tweet));
 
   };
 
@@ -42,11 +42,11 @@ $(document).ready(function() {
       <article>
 
         <header>
-          <div class="user-info">
-            <img id="user-avatar" src=${tweet.user.avatars}>
+          <div class='user-info'>
+            <img id='user-avatar' src=${tweet.user.avatars}>
             <label>${tweet.user.name}</label>
           </div>
-          <div class="handle">
+          <div class='handle'>
             <label>${tweet.user.handle}</label>
           </div>
         </header>
@@ -57,7 +57,7 @@ $(document).ready(function() {
 
         <footer>
           <label>${(tweet.created_at)}</label>
-          <div id="footer-buttons"><i class="far fa-flag"></i><i class="fas fa-retweet"></i><i class="far fa-heart"></i></div>
+          <div id='footer-buttons'><i class='far fa-flag'></i><i class='fas fa-retweet'></i><i class='far fa-heart'></i></div>
         </footer>
 
       </article>
@@ -72,7 +72,7 @@ $(document).ready(function() {
   // jquery/ajax post request handler; checks for character length and empty content
   $("#post-tweet").on('submit', function(event) {
     event.preventDefault();
-    const text = $(this.children[0]).val();
+    const text = $(this.children[0]).val().trim();
     const queryString = $(this).serialize();
     // ensures the errors hide again before checking
     $('.error-count').slideUp('fast', 'linear');
@@ -80,7 +80,7 @@ $(document).ready(function() {
     if (text.length > 140) {
       // error classes are set to display: none in their css
       $('.error-count').slideDown('fast', 'linear');
-    } else if (text === "" || text === null) {
+    } else if (text === '' || text === null) {
       $('.error-empty').slideDown('fast', 'linear');
     } else {
       $.ajax({
@@ -90,8 +90,8 @@ $(document).ready(function() {
       })
       .done(() => {
         // resets textarea and character count, then renders new tweet on page
-        $(this.children[0]).val("");
-        $(".counter").val(140);
+        $(this.children[0]).val('');
+        $('.counter').val(140);
         $('.counter').css('color', '#6495ED')
         loadRecentTweet();
       })
