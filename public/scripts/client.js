@@ -74,7 +74,8 @@ $(document).ready(function() {
     const text = $(this.children[0]).val();
     const queryString = $(this).serialize();
     // ensures the errors hide again before checking
-    
+    $('.error-count').slideUp('fast', 'linear');
+    $('.error-empty').slideUp('fast', 'linear')
     if (text.length > 140) {
       // error classes are set to display: none in their css
       $('.error-count').slideDown('fast', 'linear')
