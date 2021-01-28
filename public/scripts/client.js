@@ -92,6 +92,7 @@ $(document).ready(function() {
         // resets textarea and character count, then renders new tweet on page
         $(this.children[0]).val("");
         $(".counter").val(140);
+        $('.counter').css('color', '#6495ED')
         loadRecentTweet();
       })
       .fail(error => console.log(error));
