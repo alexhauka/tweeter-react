@@ -1,5 +1,6 @@
 
 // returns Vancouver-based date in basic numeric format without frills
+// if a different timezone is desired, adjust 'offset' accordingly
 const dateMaker = function() {
   const d = new Date();
   const localTime = d.getTime();
