@@ -2,7 +2,7 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-This repository is the student's code for a Lighthouse Labs assignment. AJAX, JQuery, HTML, and CSS were learned and used over four days.
+This repository is the student's code for a Lighthouse Labs assignment. AJAX, JQuery, HTML, and CSS were learned and implemented over four days.
 
 
 ## Unique Features
