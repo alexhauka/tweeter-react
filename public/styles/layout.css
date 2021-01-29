@@ -33,7 +33,7 @@ html {
 
   
 
-  /* Tablet Styles */
+  /* Tablet Style */
 @media only screen and (min-width: 768px) {
 
   
@@ -54,7 +54,7 @@ html {
 }
 
 
-/* Desktop styles */
+/* Desktop style */
 @media only screen and (min-width: 1024px) {
   
   header {
