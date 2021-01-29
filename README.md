@@ -12,6 +12,15 @@ This repository is the starter code for the project: Students will fork and clon
 - The character counter changes colours in *stages* when composing a tweet; these stages are less than 20 char's remaining (orange) and less than 0 (red).
 
 
+## Screenshots
+
+!["Tweeter Mobile"](https://github.com/alexhauka/tweeter/blob/master/docs/tweeter-mobile-top.png?raw=true)
+
+!["Mobile Scrolling"](https://github.com/alexhauka/tweeter/blob/master/docs/tweeter-mobile-scroll.png?raw=true)
+
+!["Tweeter Desktop"](https://github.com/alexhauka/tweeter/blob/master/docs/tweeter-warning-colour.png?raw=true)
+
+
 
 ### Getting Started
 
